@@ -1,7 +1,10 @@
 package it.unical.ingsw2020.ProvaLab;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -9,12 +12,21 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+    private static MyString myString;
+    
+    @BeforeClass
+    public static void prepare() {
+    	myString = new MyString();
+    }
+    
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void invertiStringaWorks() {
+    	assertEquals("asac", myString.invertiStringa("casa"));
+    }
+    
+    @Test
+    public void isPalindromaWorks() {
+    	assertTrue(myString.isPalindroma("anna"));
+    	assertFalse(myString.isPalindroma("casa"));
     }
 }
